@@ -1,4 +1,4 @@
-"""zhuce_auth URL Configuration
+"""to_do_list URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+import todolist.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('myauth.urls')),#只要是空字符串就包含到myauth这个APP,负责主页
+    path('todo/', include(todolist.urls)),# path('', include('todolist.urls')),#不用导入
 ]
