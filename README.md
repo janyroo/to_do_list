@@ -1,4 +1,5 @@
 部署到pythonanywhere注意修改setting.py
+git pull更新
 
 ALLOWED_HOSTS = [u'janyroo.pythonanywhere.com']
 
