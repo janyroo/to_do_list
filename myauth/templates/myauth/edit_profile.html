@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑个人信息</title>
+</head>
+<body>
+        <a href="{% url 'myauth:主页' %}">主页</a>
+        <a href="{% url 'myauth:编辑个人信息' %}">编辑个人信息</a>
+        <a href="{% url 'myauth:修改密码' %}">修改密码</a>
+        <a href="{% url 'myauth:登出' %}">登出</a>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ 编辑表单.as_p }}
+    <button type="submit">确定</button>
+</form>
+
+
+</body>
+</html>

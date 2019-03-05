@@ -4,8 +4,6 @@ from .models import Todo
 
 lis=[{'待办事项':'学习','已完成':False},{'待办事项':'吃饭','已完成':True},]
 
-def index(request):
-    return render(request,'todolist/home.html')
 
 def home(request):
     global lis

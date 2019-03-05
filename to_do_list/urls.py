@@ -16,12 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 import todolist.urls
-from todolist import views as todolist_views  # new
+
 
 urlpatterns = [
 
-
-    path('', todolist_views.index),  # new
+    path('', include('myauth.urls')),
     path('admin/', admin.site.urls),
     path('todo/', include(todolist.urls)),# path('', include('todolist.urls')),#不用导入
 ]

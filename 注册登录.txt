@@ -1,0 +1,7 @@
+python manage.py startapp app_name
+
+from django.urls import path,include
+
+path('', include('myauth.urls')),
+
+在myauth里新建一个urls.py
