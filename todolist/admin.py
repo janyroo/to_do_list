@@ -13,5 +13,7 @@ class TodoInline(admin.TabularInline):
 class UserAdmin(BaseUserAdmin):
     inlines = (TodoInline,)
 
+
+
 admin.site.unregister(User)
 admin.site.register(User,UserAdmin)

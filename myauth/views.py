@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required#判断是否登录
 @login_required(login_url='myauth:登录')#判断是否登录,如果末登陆就重定向到登录
 def 个人中心(请求):
     内容 = {'用户':请求.user}
+
     return render(请求,'myauth/user_center.html',内容)
 
 @login_required(login_url='myauth:登录')

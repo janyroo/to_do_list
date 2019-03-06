@@ -39,6 +39,8 @@
     </thead>
     <tbody class="no-underline">
         {% for 每一件事 in 清单 %}
+            {% ifequal user 每一件事.用户 %}
+
             {% if 每一件事.done %}
                 <tr class="table-dark">
                     <th class="text-dark" scope="row">{{ forloop.counter }}</th>
@@ -110,6 +112,7 @@
                     </td>
                 </tr>
             {% endif %}
+            {% endifequal %}
         {% endfor %}
 
 
