@@ -3,23 +3,23 @@ from .models import Todo
 from django.contrib.auth.models import User
 # Create your views here.
 
-lis=[{'待办事项':'学习','已完成':False},{'待办事项':'吃饭','已完成':True},]
 
 
 def home(request):
-    global lis
     if request.method == "POST":
         if request.POST["待办事项"] == '':
-            content = {"清单": Todo.objects.all(),'警告':'请输入内容!'}
+            content = {"清单": Todo.objects.filter(用户=request.user),'警告':'请输入内容!'}
             return render(request,'todolist/home.html',content)
         else:
             # request.user.username
             a_row = Todo(用户=request.user,thing=request.POST['待办事项'])
             a_row.save()
-            content={"清单":Todo.objects.all(),'信息':'添加成功!'}
+            content={"清单":Todo.objects.filter(用户=request.user),'信息':'添加成功!'}
             return render(request,'todolist/home.html',content)
     elif request.method == "GET":
-        content = {"清单": Todo.objects.all()}
+        #content = {"清单": Todo.objects.all()}
+        content = {"清单": Todo.objects.filter(用户=request.user)}
+        print(content)
         return render(request, 'todolist/home.html', content)
 
 
