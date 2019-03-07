@@ -62,8 +62,7 @@ def cross(request,每一件事_id):
 def timeing(request,每一件事_id):
 
     a= Todo.objects.get(id=每一件事_id)
-    print(request.POST['计时状态'],每一件事_id)
-    a.work_time = int(request.POST['计时状态'])
+    a.work_time += int(request.POST['计时状态'])
     a.save()
     return redirect('todolist:主页')
 
