@@ -69,14 +69,14 @@
                         <form method="POST" action="{% url 'todolist:计时' 每一件事.id %}">
                             {% csrf_token %}
                             <div id="div1">
-                            <span id="span1">00</span> :
-                            <span id="span2">00</span> :
-                            <span id="span3">00</span> :
-                            <span id="span4">00</span>
+                            <span id="span1" style="font-size:25px">00</span> :
+                            <span id="span2" style="font-size:25px">00</span> :
+                            <span id="span3" style="font-size:25px">00</span> :
+                            <span id="span4" style="font-size:25px">00</span>
                             <input id="input3" name="计时状态" type="hidden" value="000">
-                            <input id="input1" type="button" value="开始" onclick="whenClick();">
-                            <input id="input2" type="button" value="清空" onclick="clear1();">
-                                <input id="input4" type="submit" value="提交" onclick="TJClick();">
+                            <input id="input1" class="btn btn-default btn-sm" type="button" value="开始" onclick="whenClick();">
+                            <input id="input2" class="btn btn-default btn-sm" type="button" value="清空" onclick="clear1();">
+                                <input id="input4" class="btn btn-default btn-sm" type="submit" value="提交" onclick="TJClick();">
                             </div>
                          </form>
                     </td>
