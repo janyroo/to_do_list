@@ -68,17 +68,14 @@
                     <td><!------------------------计时---------------->
                         <form method="POST" action="{% url 'todolist:计时' 每一件事.id %}">
                             {% csrf_token %}
-                            <div id="div1">
-                            <span id="span1" style="font-size:25px">00</span> :
-                            <span id="span2" style="font-size:25px">00</span> :
-                            <span id="span3" style="font-size:25px">00</span> :
-                            <span id="span4" style="font-size:25px">00</span>
-                            <input id="input3" name="计时状态" type="hidden" value="000">
-                            <input id="input1" class="btn btn-default btn-sm" type="button" value="开始" onclick="whenClick();">
+                            <input id="input3" name="计时状态" type="hidden" value="">
+                            <input id="input1{{ 每一件事.id }}" class="btn btn-default btn-sm" type="button" value="开始" onclick="whenClick({{ 每一件事.id }});">
                             <input id="input2" class="btn btn-default btn-sm" type="button" value="清空" onclick="clear1();">
-                                <input id="input4" class="btn btn-default btn-sm" type="submit" value="提交" onclick="TJClick();">
-                            </div>
-                         </form>
+                            <input id="input4" class="btn btn-default btn-sm" type="submit" value="提交" onclick="TJClick();">
+                        </form>
+                        <div id="{{ 每一件事.id }}">
+
+                        </div>
                     </td>
                     <td>{{ 每一件事.work_time }}</td>
                     <td><a class="text-info" href="{% url 'todolist:编辑' 每一件事.id %}">编辑</a></td>
@@ -163,10 +160,10 @@
 
 
     <script  type="text/javascript">
-            var milliSeconds1 = document.getElementById("span4");
-            var seconds1 = document.getElementById("span3");
-            var minutes1 = document.getElementById("span2");
-            var hours1 = document.getElementById("span1");
+            //var milliSeconds1 = document.getElementById("span4");
+            //var seconds1 = document.getElementById("span3");
+            //var minutes1 = document.getElementById("span2");
+            //var hours1 = document.getElementById("span1");
             var time=0;
             var pre_time=0;
             var intervals=0;
@@ -197,10 +194,13 @@
                 }
 
 
-            function whenClick(){//  开始/暂停
-                var inputValue = document.getElementById("input1");
-
+            function whenClick(id){//  开始/暂停
+                var inputValue = document.getElementById("input1"+id);
+                if(inputValue.value=="开始"){
+                document.getElementById(id).innerHTML='<span id="span1" style="font-size:25px">00</span> : <span id="span2" style="font-size:25px">00</span> : <span id="span3" style="font-size:25px">00</span> : <span id="span4" style="font-size:25px">00</span>';
+                }
                 if(inputValue.value=="开始"||inputValue.value=="继续"){
+
                     var date= new Date();
                     time = date.getTime();
                     pre_time=time;
@@ -235,10 +235,10 @@
                 var b=intervals%60000/1000;
                 var c=intervals%3600000/60000;
                 var d=intervals/3600000;
-                milliSeconds1.innerHTML=(a<10)?('0'+Math.floor(a)):(Math.floor(a));
-                seconds1.innerHTML=(b<10)?('0'+Math.floor(b)):(Math.floor(b));
-                minutes1.innerHTML=(c<10)?('0'+Math.floor(c)):(Math.floor(c));
-                hours1.innerHTML=(d<10)?('0'+Math.floor(d)):(Math.floor(d));
+                document.getElementById("span4").innerHTML=(a<10)?('0'+Math.floor(a)):(Math.floor(a));
+                document.getElementById("span3").innerHTML=(b<10)?('0'+Math.floor(b)):(Math.floor(b));
+                document.getElementById("span2").innerHTML=(c<10)?('0'+Math.floor(c)):(Math.floor(c));
+                document.getElementById("span1").innerHTML=(d<10)?('0'+Math.floor(d)):(Math.floor(d));
             }
 
             function stop1(){//  暂停/停止
