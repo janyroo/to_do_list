@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect#render渲染,redirect重定向
+from django.shortcuts import render,redirect,HttpResponse#render渲染,redirect重定向
 from .models import Todo
 from django.contrib.auth.models import User
 # Create your views here.
@@ -56,6 +56,14 @@ def cross(request,每一件事_id):
     else:
         a = Todo.objects.get(id=每一件事_id)
         a.done = False
+    a.save()
+    return redirect('todolist:主页')
+
+def timeing(request,每一件事_id):
+
+    a= Todo.objects.get(id=每一件事_id)
+    print(request.POST['计时状态'],每一件事_id)
+    a.work_time = int(request.POST['计时状态'])
     a.save()
     return redirect('todolist:主页')
 

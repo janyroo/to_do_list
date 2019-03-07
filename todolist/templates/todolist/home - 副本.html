@@ -33,7 +33,6 @@
         <th>序号</th>
         <th>待办事项</th>
           <th>计时</th>
-          <th>用时</th>
         <th>编辑</th>
         <th>划掉</th>
         <th>删除</th>
@@ -73,14 +72,13 @@
                             <span id="span2">00</span> :
                             <span id="span3">00</span> :
                             <span id="span4">00</span>
-                            <input id="input3" name="计时状态" type="hidden" value="000">
+                            <input id="input3" name="计时状态" type="hidden" value="计时结果">
                             <input id="input1" type="button" value="开始" onclick="whenClick();">
                             <input id="input2" type="button" value="清空" onclick="clear1();">
                                 <input id="input4" type="submit" value="提交" onclick="TJClick();">
                             </div>
                          </form>
                     </td>
-                    <td>{{ 每一件事.work_time }}</td>
                     <td><a class="text-info" href="{% url 'todolist:编辑' 每一件事.id %}">编辑</a></td>
                     <!--<a href="{% url 'todolist:编辑' forloop.counter %}">
                         <button type="submit" class="btn btn-primary btn-sm ">编辑</button>
@@ -175,8 +173,8 @@
 
 
             function TJClick(){//  提交
-                //var inputValue3 = document.getElementById("input3");//new
-                var div_ls = document.getElementsByTagName('input')
+                var inputValue3 = document.getElementById("input3");//new
+
 
                 date = new Date();
                 intervals=date.getTime()-time+pre_intervals;
@@ -184,16 +182,7 @@
                 var b=intervals%60000/1000;
                 var c=intervals%3600000/60000;
                 var d=intervals/3600000;
-
-                //inputValue3.value=intervals;//new
-                for(var i=0;i<div_ls.length;i++){
-        	// 遍历所有的div并根据id做判断
-            if(div_ls[i].getAttribute('id') == 'input3'){
-            	// 对满足条件的标签设置属性即可
-                div_ls[i].setAttribute('value', intervals)
-            }
-        }
-
+                inputValue3.value=intervals;//new
                 }
 
 
