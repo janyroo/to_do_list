@@ -9,5 +9,6 @@ class Todo(models.Model):
     thing = models.CharField(max_length=50)
     done = models.BooleanField(default=False)
     work_time = models.IntegerField(default=0)
+    格式化秒 = models.CharField(max_length=15)
     class Meta:
         verbose_name_plural="待办事项"

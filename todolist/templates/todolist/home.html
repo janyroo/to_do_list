@@ -77,7 +77,7 @@
 
                         </div>
                     </td>
-                    <td>{{ 每一件事.work_time }}</td>
+                    <td>{{ 每一件事.格式化秒 }}</td>
                     <td><a class="text-info" href="{% url 'todolist:编辑' 每一件事.id %}">编辑</a></td>
                     <!--<a href="{% url 'todolist:编辑' forloop.counter %}">
                         <button type="submit" class="btn btn-primary btn-sm ">编辑</button>
