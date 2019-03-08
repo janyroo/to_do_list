@@ -76,5 +76,6 @@ def timeing(request,每一件事_id):
     h, m = divmod(m, 60)
     a.格式化秒="%02d:%02d:%02d" % (h, m, s)
     a.save()
+    # 1
     return redirect('todolist:主页')
 

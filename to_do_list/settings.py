@@ -117,7 +117,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)?
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 
@@ -125,3 +125,4 @@ MEDIA_ROOT = u'/home/janyroo/to_do_list/todolist/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/janyroo/to_do_list/todolist/static'
 STATIC_URL = '/static/'
+
