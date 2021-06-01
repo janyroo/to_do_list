@@ -114,7 +114,7 @@ translate==3.5.0
 tushare==1.2.20
 twilio==6.23.0
 tzlocal==1.5.1
-urllib3==1.23
+urllib3==1.26.5
 virtualenv==16.1.0
 Werkzeug==0.14.1
 wordcloud==1.5.0
